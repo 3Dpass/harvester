@@ -71,7 +71,9 @@ class Harvester:
         self.substrate = SubstrateInterface(
             url=self.settings.SUBSTRATE_RPC_URL,
             ss58_format=self.settings.SUBSTRATE_SS58_FORMAT,
-            type_registry_preset=self.settings.TYPE_REGISTRY
+            # type_registry=self.settings.TYPES,
+            # type_registry_preset=self.settings.TYPE_REGISTRY
+            type_registry_preset="substrate-node-template",
         )
         # Disable automatic SS58 encoding
         self.substrate.runtime_config.ss58_format = None
@@ -79,7 +81,9 @@ class Harvester:
         self.db_substrate = DatabaseSubstrateInterface(
             db_session=self.session,
             ss58_format=self.settings.SUBSTRATE_SS58_FORMAT,
-            type_registry_preset=self.settings.TYPE_REGISTRY,
+            # type_registry=self.settings.TYPES,
+            # type_registry_preset=self.settings.TYPE_REGISTRY,
+            type_registry_preset="substrate-node-template",
             auto_discover=False
         )
         # Disable automatic SS58 encoding

@@ -42,6 +42,31 @@ SUBSTRATE_TREASURY_ACCOUNTS = [
 ]
 
 TYPE_REGISTRY = os.environ.get("TYPE_REGISTRY", None)
+TYPES = {
+    "types": {
+        "AccountInfo": "AccountInfoWithTripleRefCount",
+        "Address": "AccountId",
+        "LookupSource": "AccountId",
+        "Weight": "u32",
+        "Difficulty": "u256",
+        "DifficultyAndTimestamp": {
+            "difficulty": "Difficulty",
+            "timestamp": "u64"
+        },
+        "LockParameters": {
+            "period": "u16",
+            "divide": "u16"
+        },
+        "StorageVersion": {
+            "_enum": [
+                "V0",
+                "V1"
+            ],
+            "V0": "u8",
+            "V1": "u8"
+        }
+    }
+}
 
 DEBUG = bool(os.environ.get("DEBUG", False))
 
